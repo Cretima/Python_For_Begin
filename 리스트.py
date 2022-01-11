@@ -56,6 +56,14 @@ print(mix_list)
 num_list.extend(mix_list)
 print(num_list) # [5, 2, 4, 3, 1, '조세호', 20, True]
 
+# 랜덤함수를 이용해 순서 뒤죽박죽 가능
+from random import *
+shuffle(num_list)
+
+#랜덤함수를 이용해 리스트안에 숫자(문자) 뽑기
+#from random import *
+print(sample(num_list, 1)) # num_list 안에 있는 것중 1개를 뽑겠다는 의미
+
 
 ## 튜플 / 리스트와 다르게 추가 제거 불가 but 처리속도가 빠름
 
