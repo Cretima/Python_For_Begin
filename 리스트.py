@@ -1,4 +1,4 @@
-#리스트 [] 순서를 가지는 객체의 집합
+##리스트 [] 순서를 가지는 객체의 집합
 
 # EX) 지하철 칸별로 10명, 20명, 30명
 subway1 = 10
@@ -55,3 +55,15 @@ print(mix_list)
 #리스트 확장(합치기) .extend
 num_list.extend(mix_list)
 print(num_list) # [5, 2, 4, 3, 1, '조세호', 20, True]
+
+
+## 튜플 / 리스트와 다르게 추가 제거 불가 but 처리속도가 빠름
+
+menu = ("돈까스", "치즈까스")
+print(menu[0]) # 돈까스
+print(menu[1]) # 치즈까스
+
+#menu.add("생선까스") # add 기능지원 X 오류발생
+
+(name, age, hobby) = ("김종국", 20, "코딩")
+print(name, age, hobby)
