@@ -46,3 +46,5 @@ print(cabinet.items())
 # 폐점
 # cabinet.clear
 print(cabinet.clear) # {}
+
+# good bye
