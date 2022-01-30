@@ -20,7 +20,7 @@ print(students) # [101, 102, 103, ...]
 
 # 학생 이름을 길이로 변환
 students = ["Iron man", "Thor","I am groot"]
-students = [len(i) for i in students] # students 값을 idp 주고 길이로 반환 다시 students 대입
+students = [len(i) for i in students] # students 값을 i에 주고 길이로 반환 다시 students 대입
 print(students) #(8, 4, 10)
 
 # 학생 이름을 대문자로 변환
