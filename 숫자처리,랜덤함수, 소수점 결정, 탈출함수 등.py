@@ -11,6 +11,10 @@ print("%7.3f\n" %123.46)#123.460
 print("%s" %"Python")#Python
 print("%10s" %"Python")#     Python
 
+weight = 65.34567
+print(f"몸무게는 {weight:0.2f}") # 65.34
+print(f"몸무게는 {weight:0.4f}") # 65.3456
+
 # 이스케이프 함수
 print("\n줄바꿈\n연습")
 print("\t탭키\t연습")
