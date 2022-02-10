@@ -14,7 +14,7 @@ from encodings import utf_8
 import re
 
 
-def report_write(): # 보고서 작성 함수
+def report_write(): # 매주 1회 보고서 작성 함수
     num = 1 # 몇 주차인가?
 
     while(num < 3): # 지정된 주차까지 보고서 반복 작성
@@ -49,13 +49,47 @@ def report_write(): # 보고서 작성 함수
             print(f"부서 : {department} \n이름 : {name} \n업무 요약 : {contents}", file = report_file) # 적은 내용을 txt파일에 써줘
 
             num += 1
+
+def report_writes(n): # 매주 n회 보고서 작성 함수
+    week = 0 # 몇 주차인가?
+    day = n # 주 당 몇회인가?
+    while(week < 3): # 지정된 주차까지 보고서 반복 작성
+        week += 1 # 주차를 늘려줘
+        for i in range(day): #  - n 주차인가?  
+
+            # # method 1.
+            report_file = open("%d - %d주차.txt" %(week, i), "w", encoding="utf_8")
+
+            print(f"- {week} 주차 주간 보고 -", file = report_file) # 보고서 <title>
+
+            # 보고서 작성 부분
+            print("%d - %d주차 보고서를 쓰는 중이야" %(week, i)) # 몇 주차 보고서를 쓰는지 알기 쉽게 할거야
+            department = input("부서명 : ")
+            name = input("자기 이름 : ")
+            contents = input("업무 요약글 : ")
+
+            print(f"부서 : {department} \n이름 : {name} \n업무 요약 : {contents}", file = report_file) # 적은 내용을 txt파일에 써줘
+
+            report_file.close() # 보고서 작성 끝 파일을 닫아줘.
             
+
+
 # # main
 
-# 매주 1회만 작성한다고 가정해
-report_write()
+number = int(input("매주 몇 회 보고서를 작성할거니?(0은 오류나요) "))
 
-# 파일이 잘 저장되었는지 확인용 read
-# report_file = open("1주차.txt", "r", encoding="utf_8")
-# print(report_file.read()) # 파일안에 있는 글을 전부 읽어줘
-# report_file.close()
+if number == 1:
+    # # 매주 1회만 작성한다고 가정해
+    report_write()
+
+    # 파일이 잘 저장되었는지 확인용 read
+    # report_file = open("1주차.txt", "r", encoding="utf_8")
+    # print(report_file.read()) # 파일안에 있는 글을 전부 읽어줘
+    # report_file.close()
+else:
+    report_writes(number)
+
+    # 파일이 잘 저장되었는지 확인용 read
+    # report_file = open("1 - 1주차.txt", "r", encoding="utf_8")
+    # print(report_file.read()) # 파일안에 있는 글을 전부 읽어줘
+    # report_file.close()
