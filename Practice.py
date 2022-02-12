@@ -2,6 +2,7 @@
     끄적끄적
     아래 예제처럼 하나의 유닛(ex. tank)을 여러개(10개, 100개)를 만들때 일일히 코드를 쓰기 힘들기에
     class(객체를 만드는 틀(ex. 와플기계) 즉, 코드(재료)만 넣어주면 객체(와플)을 만들어줌.)를 사용
+    self는 멤버 변수()라 지칭 - class 내의 변수 but 전역변수처럼 외부에서 사용가능.
 '''
 
 # # class(클래스) 서로 연관이 있는 변수와 함수의 집합(객체 틀)
@@ -45,6 +46,7 @@
 
 class Unit:
     def __init__(self, name, hp, damage):
+        # __init__ : class를 쓸때 자동으로 붙는 호풀되는 함수
         self.name = name
         self.hp = hp
         self.damage = damage
@@ -54,3 +56,16 @@ class Unit:
 marine1 = Unit("마린", 40, 5)
 marine2 = Unit("마린", 40, 5)
 tank = Unit("탱크", 150, 30)
+# tank2 = Unit("탱크", 30) # self 제외, __init__ 값이 지정되지 않으면 오류가 발생
+
+# # 멤버 변수 사용 예
+# 레이스 : 공중유닛, 비행기, 클로킹(스텔스)
+wraith1 = Unit("레이스", 80, 5)
+print(f"유닛 이름 : {wraith1.name}, 공격력 : {wraith1.damage}")
+
+# 마인드 컨트롤 : 상대방 유닛을 내 것으로 만듬
+wraith2 = Unit("빼앗은 레이스", 80, 5)
+wraith2.clocking = True # class에 없는 것을 외부에서 만들수있음 but wraith1 같은 경우엔 사용 불가.
+
+if wraith2.clocking == True: 
+    print(f"{wraith2.name}는 현재 클로킹 중입니다.")
